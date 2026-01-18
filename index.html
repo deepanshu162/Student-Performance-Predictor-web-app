@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>Input Study Metrics</h2>
+        <span class="badge">Term 1</span>
+    </div>
+
+    <form method="POST" action="/" class="study-form">
+        <div class="form-group">
+            <label for="hours_studied">Hours Studied</label>
+            <input type="number" id="hours_studied" name="hours_studied" step="0.1" min="0" max="24" required
+                value="{{ inputs.get('Hours Studied', '') }}" placeholder="e.g., 7.5">
+            <small>Daily average study time</small>
+        </div>
+
+        <div class="form-group">
+            <label for="previous_scores">Previous Scores</label>
+            <input type="number" id="previous_scores" name="previous_scores" min="0" max="100" required
+                value="{{ inputs.get('Previous Scores', '') }}" placeholder="e.g., 85">
+            <small>Average score from last term</small>
+        </div>
+
+        <div class="form-group">
+            <label for="extracurricular_activities">Extracurricular Activities</label>
+            <select id="extracurricular_activities" name="extracurricular_activities">
+                <option value="Yes" {% if inputs.get('Extracurricular Activities')=='Yes' %}selected{% endif %}>Yes
+                </option>
+                <option value="No" {% if inputs.get('Extracurricular Activities')=='No' %}selected{% endif %}>No
+                </option>
+            </select>
+            <small>Participation in clubs/sports</small>
+        </div>
+
+        <div class="form-group">
+            <label for="sleep_hours">Sleep Hours</label>
+            <input type="number" id="sleep_hours" name="sleep_hours" min="0" max="24" required
+                value="{{ inputs.get('Sleep Hours', '') }}" placeholder="e.g., 8">
+            <small>Average nightly sleep</small>
+        </div>
+
+        <div class="form-group">
+            <label for="sample_papers">Sample Papers Practiced</label>
+            <input type="number" id="sample_papers" name="sample_papers" min="0" max="100" required
+                value="{{ inputs.get('Sample Question Papers Practiced', '') }}" placeholder="e.g., 5">
+            <small>Total papers solved</small>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn-primary">Predict Score</button>
+        </div>
+    </form>
+</div>
+
+{% if prediction %}
+<div class="result-card" id="result">
+    <div class="notebook-holes"></div>
+    <h3>Prediction Result</h3>
+    <div class="score-display">
+        <span class="score-label">Estimated Index:</span>
+        <span class="score-value">{{ prediction }}</span>
+    </div>
+    <p class="motivation">
+        {% if prediction|float > 80 %}
+        Excellent! Keep up the great work. 🌟
+        {% elif prediction|float > 60 %}
+        Good job! A little more push and you'll excel. 📚
+        {% else %}
+        Don't worry. Focus on consistent study and practice. 💪
+        {% endif %}
+    </p>
+</div>
+{% endif %}
+{% endblock %}

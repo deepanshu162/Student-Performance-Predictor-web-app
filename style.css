@@ -1,0 +1,239 @@
+:root {
+    --bg-color: #fdfbf7;
+    --paper-line: #e1e1e1;
+    --text-primary: #2d2d2d;
+    --text-secondary: #555;
+    --accent-blue: #1a237e;
+    --accent-highlight: #fff9c4;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --font-heading: 'Merriweather', serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    background-image: linear-gradient(var(--paper-line) 1px, transparent 1px);
+    background-size: 20px 20px;
+    font-family: var(--font-body);
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding: 2rem;
+}
+
+.notebook-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 3rem;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-left: 6px solid #e57373;
+    /* Margin line look */
+    position: relative;
+}
+
+/* Header */
+.main-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    border-bottom: 2px solid var(--text-primary);
+    padding-bottom: 1rem;
+}
+
+.main-header h1 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--accent-blue);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-style: italic;
+    font-family: var(--font-heading);
+}
+
+/* Form Card */
+.card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.card-header h2 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+}
+
+.badge {
+    background: var(--accent-blue);
+    color: #fff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* Form Elements */
+.study-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group:nth-last-child(2) {
+    grid-column: span 2;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+input,
+select {
+    padding: 0.75rem;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--accent-blue);
+    outline: none;
+    background-color: #fcfcfc;
+}
+
+small {
+    color: #888;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+.form-actions {
+    grid-column: span 2;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.btn-primary {
+    background: var(--accent-blue);
+    color: #fff;
+    border: none;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.2s;
+    font-family: var(--font-body);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(26, 35, 126, 0.3);
+}
+
+/* Result Card - Index Card Look */
+.result-card {
+    background: #fff9c4;
+    /* Yellow index card */
+    padding: 2rem;
+    border-radius: 4px;
+    /* Slight round */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+    text-align: center;
+    position: relative;
+    transform: rotate(-1deg);
+    border: 1px solid #f0f0f0;
+}
+
+.result-card h3 {
+    font-family: var(--font-heading);
+    color: var(--accent-blue);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.score-display {
+    margin: 1.5rem 0;
+}
+
+.score-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.score-value {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    color: var(--text-primary);
+    font-weight: 700;
+    border-bottom: 4px solid var(--accent-blue);
+    /* Underline style */
+    display: inline-block;
+    line-height: 1;
+}
+
+.motivation {
+    font-style: italic;
+    color: #444;
+    margin-top: 1rem;
+}
+
+.main-footer {
+    text-align: center;
+    margin-top: 3rem;
+    color: #888;
+    font-size: 0.875rem;
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .notebook-container {
+        padding: 1.5rem;
+    }
+
+    .study-form {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group:nth-last-child(2) {
+        grid-column: span 1;
+    }
+
+    .form-actions {
+        grid-column: span 1;
+    }
+}
