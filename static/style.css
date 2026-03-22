@@ -219,14 +219,70 @@ small {
     padding-top: 1rem;
 }
 
+/* Tablet Responsive (Laptops gap reduction) */
+@media (max-width: 1024px) {
+    body {
+        padding: 1rem;
+    }
+    .notebook-container {
+        padding: 2.5rem;
+    }
+}
+
+/* Tablets / Medium Screens */
+@media (max-width: 850px) {
+    .notebook-container {
+        padding: 2rem;
+    }
+    .main-header h1 {
+        font-size: 2rem;
+    }
+    .study-form {
+        gap: 1rem;
+    }
+}
+
 /* Mobile Responsive */
 @media (max-width: 600px) {
+    body {
+        padding: 0.5rem;
+    }
+    
     .notebook-container {
         padding: 1.5rem;
+        border-left-width: 4px;
+    }
+
+    .main-header {
+        margin-bottom: 2rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .main-header h1 {
+        font-size: 1.75rem;
+    }
+    
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .card-header h2 {
+        font-size: 1.25rem;
     }
 
     .study-form {
         grid-template-columns: 1fr;
+        gap: 1.25rem;
     }
 
     .form-group:nth-last-child(2) {
@@ -235,5 +291,39 @@ small {
 
     .form-actions {
         grid-column: span 1;
+    }
+
+    .btn-primary {
+        width: 100%;
+        padding: 0.875rem 1rem;
+        font-size: 1rem;
+    }
+    
+    .result-card {
+        padding: 1.5rem;
+    }
+    
+    .score-value {
+        font-size: 3rem;
+    }
+}
+
+/* Ultra Small Mobile Responsive */
+@media (max-width: 400px) {
+    .notebook-container {
+        padding: 1rem;
+        border-left-width: 3px;
+    }
+    
+    .main-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .card {
+        padding: 1.25rem;
+    }
+
+    .score-value {
+        font-size: 2.5rem;
     }
 }
